@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <h1>Welcome to Rock Paper Scissors. Press "r", "p", or "s" to play</h1>
+        <script>
+            const choices = ["r", "p", "s"];
+            document.addEventListener("keyup", userKeyPress, false);
+            let wins = 0;
+            let ties = 0;
+            let losses = 0;
+            function userKeyPress(event) {
+                const userPick = event.key;
+                //if the user did not press a valid key, then don't do anything
+                if(choices.indexOf(userPick) === -1) {
+                    return;
+                }
+                //have the computer pick among rock paper scissors
+                const computerPick = choices[Math.floor(choices.length * Math.random())];
+                const results = `You picked ${userPick} and the computer picked ${computerPick}. `;
+                //we list all of the conditions for the user to win
+                if((userPick === "r" && computerPick === "s") || (userPick === "p" && computerPick === "r") || (userPick === "s" && computerPick === "p")) {
+                    wins++;
+                    alert(results + "You won!");
+                //detecting a tie is easy!
+                } else if (userPick === computerPick) {
+                    ties++;
+                    alert(results + "You tied");
+                //if the user did not win or tie, the user MUST have lost
+                } else {
+                    losses++;
+                    alert(results + "You lost.");
+                }
+                alert(`Wins: ${wins}\nTies: ${ties}\nLosses: ${losses}`);
+            }
+        </script>
+    </body>
+</html>
