@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Favorite TV Shows</title>
+  </head>
+  <body>
+​
+    <script type="text/javascript">
+        // Make an array that will hold ALL of the TV shows
+        const favTVshows = [];
+        // Make a variable that will sequentially hold each TV show
+        let tvShow;
+        // For Loop Elements Repeats 3 Times (Note that i starts at 1, not 0)
+        for (var i = 1; i < 4; i++) {
+            // Let the user name his/her favorite TV show
+            tvShow = prompt("What's your #" + i + " favorite TV show?");
+            // Store each of the user's answers in our array
+            favTVshows.push(tvShow);
+        }
+        // Step through each of the elements in the favTVshows array
+        for (const show of favTVshows) {
+            // Report the user's input back out
+            alert(show);
+        }
+    </script>
+​
+  </body>
+</html>
